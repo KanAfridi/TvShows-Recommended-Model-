@@ -1,0 +1,29 @@
+#similarity = load_similarity()
+#df = load_data()
+
+
+
+#df = joblib.load('data.joblib')
+#samilarity = joblib.load('similarity_model.joblib')
+
+# Load the similarity matrix
+#with open('Similarity.pkl', 'rb') as file:
+    #similarity = pickle.load(file)
+
+# Load the dataframe
+#with open('data.pkl', 'rb') as file:
+    #df = pickle.load(file)
+
+
+
+
+def load_similarity():
+    try:
+        with h5py.File('similarity_score.h5', 'r') as f:
+            similarity_score = f['similarity_score'][:]
+            return similarity_score
+    except FileNotFoundError as e:
+        print(f"Error: {e}")
+        return None
+
+
