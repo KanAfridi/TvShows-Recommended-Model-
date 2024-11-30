@@ -1,16 +1,14 @@
 import requests
 import json
 
+ # Load configuration from JSON file
 with open("config.json", "r") as config_file:
     config = json.load(config_file)
-api_key = config["API_KEY"]
 
-
-
-
+ # Function to fetch image path for a given TV show ID
 def fetch_image_path(tv_id=None):
     # API details
-    #api_key =    #"2d93afa4fe9bcb72ba4e36370e670b79"
+    api_key = config["API_KEY"]
     image_url_template = "https://api.themoviedb.org/3/tv/{tv_id}/images"
 
     # Discover the most popular TV show if tv_id is not provided
